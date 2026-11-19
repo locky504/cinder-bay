@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cinder Bay — Rain City Run</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="./style.css">
+<script type="importmap">
+{ "imports": { "three": "./vendor/three.module.min.js" } }
+</script>
+</head>
+<body>
+<div id="game-container"></div>
+
+<!-- HUD -->
+<div id="hud" class="hidden">
+  <div id="top-right">
+    <div id="stars">☆☆☆☆☆</div>
+    <div id="cash">$0</div>
+    <div id="health"><div id="healthFill"></div><span id="healthText">100</span></div>
+  </div>
+  <div id="objective"></div>
+  <div id="district">Dockside · 码头区</div>
+  <div id="speed"></div>
+  <div id="toast" class="hidden"></div>
+  <div id="prompt" class="hidden"></div>
+  <div id="crosshair" class="hidden">+</div>
+  <div id="minimap-wrap"><canvas id="minimap" width="190" height="190"></canvas></div>
+  <div id="controls-hint">WASD move / drive · Mouse drag camera · Click shoot · E enter car · F steal · Space brake · P pause · M mute</div>
+</div>
+<div id="damage"></div>
+
+<!-- Start menu -->
+<div id="menu-start" class="menu">
+  <div class="menu-card">
+    <h1>CINDER BAY</h1>
+    <h2>Rain City Run</h2>
+    <p class="story">Rain hammers the harbour city of <b>Cinder Bay</b>. Mara Quinn — ex-courier,
+    now a getaway driver with rent due — takes one last string of jobs from her dispatcher Dex:
+    fares, lifted cars, a dockyard shootout and a vault in Uptown. Three districts. Six missions.
+    Five stars of heat if you slip.</p>
+    <p class="controls"><b>Play:</b> WASD walk / drive · drag mouse to orbit the camera · click to shoot ·
+    <b>E</b> enter a car · <b>F</b> steal a car · <b>Space</b> brake · <b>P</b> pause · <b>R</b> restart mission ·
+    <b>M</b> mute. Side work: taxi stand and courier depot pay cash.</p>
+    <p id="save-info"></p>
+    <button id="btn-new" class="big">New Game</button>
+    <button id="btn-continue" class="big">Continue</button>
+    <p class="fine">An original game. Not affiliated with Rockstar Games or the Grand Theft Auto series.
+    All art, names, story and music are original. Progress autosaves to this browser.</p>
+  </div>
+</div>
+
+<!-- Pause menu -->
+<div id="menu-pause" class="menu hidden">
+  <div class="menu-card">
+    <h1>PAUSED</h1>
+    <p class="story">The rain keeps falling on Cinder Bay.</p>
+    <button id="btn-resume" class="big">Resume</button>
+    <button id="btn-restart" class="big">Restart Mission</button>
+    <button id="btn-quit" class="big">Quit to Menu</button>
+  </div>
+</div>
+
+<!-- Death menu -->
+<div id="menu-dead" class="menu hidden">
+  <div class="menu-card">
+    <h1>WASTED</h1>
+    <p id="dead-cause" class="story">Mara went down in the rain.</p>
+    <p class="story">The harbour hospital patches you up. $100 lighter, heat gone, the job still waiting.</p>
+    <button id="btn-dead" class="big">Get Back Up</button>
+  </div>
+</div>
+
+<!-- Complete menu -->
+<div id="menu-complete" class="menu hidden">
+  <div class="menu-card">
+    <h1>RAIN CITY HEIST — DONE</h1>
+    <p class="story">Mara made it to the lighthouse with the loot. Cinder Bay is hers now — free roam continues.</p>
+    <p id="final-stats" class="story"></p>
+    <button id="btn-complete" class="big">Keep Playing (Free Roam)</button>
+    <button id="btn-again" class="big">New Game</button>
+  </div>
+</div>
+
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
